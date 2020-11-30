@@ -1,4 +1,4 @@
-function [g] = restricciones(w)
+function [g, hx] = restriccionesMatlab(w)
 % Restricciones de desigualdad para el problema geométrico
 % IN
 %   w: vector de 2(n-1) con coordenadas polares de vértices del polígono
@@ -46,6 +46,7 @@ for k = 1:( n - 1 )
 end
 
 
-g = [ gx ; gth1 ; gth2 ; gth3 ; gth4 ; gth5 ];
+g = -[ gx ; gth1 ; gth2 ; gth3 ; gth4 ; gth5 ];
+hx = [];
 
 end
