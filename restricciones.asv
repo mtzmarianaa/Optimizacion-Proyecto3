@@ -48,4 +48,46 @@ end
 
 g = [ gx ; gth1 ; gth2 ; gth3 ; gth4 ; gth5 ];
 
+
+
+
+n = length(x)/2;
+% Le agregamos el punto inicial
+W = [ w(1:n) ; pi ; w(n+1:2*n) ;0 ];
+
+n = length(W)/2;
+
+% Inicializamos las variables
+gx = zeros(0.5*(n*(n-1)),1);
+gx = zeros(0.5*(n*(n-1)),1);
+gth = zeros(n-1,1);
+rlim = zeros(4*n,1);
+
+th = W(1:n); 
+r = W(n+1:2*n);
+
+for i=1:n-1
+    for j=i+1:n
+        gx(i*(n-1)+j) = 1 - ...
+            (r(i)^2 + r(j)^2 - 2*r(i)*r(j)*cos(th(i) - th(j)));
+    end
+end
+
+for i=1:n-1
+    gth(i) = th(i+1) - th(i);
+end
+
+rlim(1:2*n) = W;
+rlim(2*n+1:3*n) = pi - th;
+rlim(3*n+1:4*n) = 1 - r;
+
+gx = [-gx
+    -gth
+    -rlim];
+
+
+
+
+
+
 end

@@ -26,3 +26,10 @@ figure(1)
 polarplot([0;th;0],[0;r;0], '-o')
 
 
+
+figure(1)
+polarplot([0;x0(1:3);0],[0;x0(4:6);0], '-o')
+
+figure(2)
+polarplot([x0(1:3)],[x0(4:6)], '-o')
+
